@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="/css/style.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <div style="margin: 100px;">
+            <h1>Share your inputs...</h1>
+        </div>
+        
+        <h2>Subject: Social Studies</h2>
+
+        <form id="getInputs-form" method="POST" action="/getSocialStudiesInputs">
+            <label for="G1">CT1 grades</label>
+            <input type="number" name="G1" min=0 max=20><br><br>
+            <label for="G2">CT2 grades</label>
+            <input type="number" name="G2" min=0 max=20><br><br>
+            <label for="failures">Failures</label>
+            <input type="number" name="failures" min=0 max=10><br><br>
+            <label for="studytime">Total Study time</label>
+            <input type="number" name="studytime" min=0 max=100 placeholder="hours"><br><br>
+            <label for="likesubject">Do you like this subject?</label>
+            <select name="likesubject">
+                <option value=0>No</option>
+                <option value=1>Yes</option>
+            </select><br><br>
+            <label for="difficulty">Difficulty in exam [1-10]</label>
+            <input type="number" name="difficulty" min=1 max=10><br><br>
+            <button type="submit" value="submit">Submit</button><br><br>
+        </form>
+        <%- include("nav") %>
+    </body>
+</html>
