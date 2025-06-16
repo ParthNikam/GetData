@@ -160,41 +160,6 @@ app.post('/getEnglishInputs', urlencodedParser, function(req, res){
 });
 
 
-//-------------------------------------------------------------- Hindi ---------------------------------------------------------
-
-var csvWriter_hindi = createCsvWriter({
-    path: 'data/hindi.csv',
-    header: [
-        {id: 'G1', title: 'G1'},
-        {id: 'G2', title: 'G2'},
-        {id: 'failures', title: 'failures'},
-        {id: 'studytime', title: 'studytime'},
-        {id: 'likesubject', title: 'likesubject'},
-        {id: 'difficulty', title: 'difficulty'}
-    ]
-});
-
-app.get('/getHindiInputs', function(req, res){
-    res.render('partials/getHindiInputs', {person: req.query});
-});
-
-app.post('/getHindiInputs', urlencodedParser, function(req, res){
-    var new_records = {}
-    
-    for (var i in req.body){
-        new_records[i] = parseInt(req.body[i]);
-    }
-
-    var records = [new_records];
-
-    csvWriter_hindi.writeRecords(records).then(() => {
-        console.log('Hindi');
-    });
-
-    res.render('partials/success', {person: req.body});
-});
-
-//--------------------------------------------------------------------------------------------------------------------------------------------
 
 app.listen(8080); // setting a port
 
